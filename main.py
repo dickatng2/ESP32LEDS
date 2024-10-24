@@ -5,11 +5,20 @@ from time import sleep
 led23 = Pin(23, Pin.OUT)
 pwm = machine.PWM(led23)
 t_slp = 1
-def timer_callback:
-  test_ota.py
+
+def timer_callback():
+    from ota import OTAUpdater
+    from WIFI_CONFIG import SSID, PASSWORD
+
+    firmware_url = "https://github.com/dickatng2/ESP32LEDS/"
+    ota_updater = OTAUpdater(SSID, PASSWORD, firmware_url, "main.py")
+    ota_updater.download_and_install_update_if_available()
+
+def timer_test(a):
+    timer_callback()
 
 my_timer = Timer(3)
-my_timer.init(mode=Timer.PERIODIC, period=100000, callback=timer_callback)
+my_timer.init(mode=Timer.PERIODIC, period=10000, callback=timer_test)
 
 while True:
   pwm.duty(1023)
