@@ -1,1 +1,1 @@
-print "test ota"
+print ("test ota")
