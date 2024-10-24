@@ -18,7 +18,7 @@ def timer_test(a):
     timer_callback()
 
 my_timer = Timer(3)
-my_timer.init(mode=Timer.PERIODIC, period=10000, callback=timer_test)
+my_timer.init(mode=Timer.PERIODIC, period=100000, callback=timer_test)
 
 while True:
   pwm.duty(1023)
