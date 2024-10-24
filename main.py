@@ -1,7 +1,7 @@
 # test
 import machine, time
 from machine import Pin, PWM
-led23 = Pin(23, Pin,OUT)
+led23 = Pin(23, Pin.OUT)
 pwm = machine.PWM(led23)
 t_slp = 1
 while True:
