@@ -1,6 +1,6 @@
 # test
 import machine, time
-from machine import Pin, PWM
+from machine import Pin, PWM, Timer
 from time import sleep
 led23 = Pin(23, Pin.OUT)
 pwm = machine.PWM(led23)
@@ -8,7 +8,7 @@ t_slp = 1
 def timer_callback:
   test_ota.py
 
-my_timer = Timer(id)
+my_timer = Timer(3)
 my_timer.init(mode=Timer.PERIODIC, period=100000, callback=timer_callback)
 
 while True:
