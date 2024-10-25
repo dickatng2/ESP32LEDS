@@ -36,6 +36,6 @@ def licht01():
       pwm.duty(5)
       time.sleep(t_slp)
         
-my_timer = Timer(3)
-my_timer.init(mode=Timer.PERIODIC, period=100000, callback=timer_test)
+my_timer = Timer(1)
+my_timer.init(mode=Timer.PERIODIC, period=200000, callback=timer_test)
 licht01()
