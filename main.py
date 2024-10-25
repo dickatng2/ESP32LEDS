@@ -38,4 +38,4 @@ def licht01():
         
 my_timer = Timer(3)
 my_timer.init(mode=Timer.PERIODIC, period=100000, callback=timer_test)
-licht01
+licht01()
