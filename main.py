@@ -17,23 +17,25 @@ def timer_callback():
 def timer_test(a):
     timer_callback()
 
+def licht01():
+    while True:
+      pwm.duty(1023)
+      time.sleep(t_slp)
+      pwm.duty(700)
+      time.sleep(t_slp)
+      pwm.duty(500)
+      time.sleep(t_slp)
+      pwm.duty(200)
+      time.sleep(t_slp)
+      pwm.duty(100)
+      time.sleep(t_slp)
+      pwm.duty(50)
+      time.sleep(t_slp)
+      pwm.duty(10)
+      time.sleep(t_slp)
+      pwm.duty(5)
+      time.sleep(t_slp)
+        
 my_timer = Timer(3)
 my_timer.init(mode=Timer.PERIODIC, period=100000, callback=timer_test)
-
-while True:
-  pwm.duty(1023)
-  time.sleep(t_slp)
-  pwm.duty(700)
-  time.sleep(t_slp)
-  pwm.duty(500)
-  time.sleep(t_slp)
-  pwm.duty(200)
-  time.sleep(t_slp)
-  pwm.duty(100)
-  time.sleep(t_slp)
-  pwm.duty(50)
-  time.sleep(t_slp)
-  pwm.duty(10)
-  time.sleep(t_slp)
-  pwm.duty(5)
-  time.sleep(t_slp)
+licht01
