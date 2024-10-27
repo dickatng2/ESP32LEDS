@@ -1,9 +1,11 @@
-# test
+# version 18
 import machine, time
 from machine import Pin, PWM, Timer
 from time import sleep
 led23 = Pin(23, Pin.OUT)
-pwm = machine.PWM(led23)
+led22 = Pin(22, Pin.OUT)
+pwm23 = machine.PWM(led23)
+pwm22 = machine.PWM(led22)
 t_slp = 1
 
 def timer_callback():
@@ -19,21 +21,38 @@ def timer_test(a):
 
 def licht01():
     while True:
-      pwm.duty(1023)
+      pwm23.duty(1023)
       time.sleep(t_slp)
-      pwm.duty(700)
+      pwm23.duty(700)
       time.sleep(t_slp)
-      pwm.duty(500)
+      pwm23.duty(500)
       time.sleep(t_slp)
-      pwm.duty(200)
+      pwm23.duty(200)
       time.sleep(t_slp)
-      pwm.duty(100)
+      pwm23.duty(100)
       time.sleep(t_slp)
-      pwm.duty(50)
+      pwm23.duty(50)
       time.sleep(t_slp)
-      pwm.duty(10)
+      pwm23.duty(10)
       time.sleep(t_slp)
-      pwm.duty(5)
+      pwm23.duty(5)
+      time.sleep(t_slp)
+
+pwm23.duty(1023)
+      time.sleep(t_slp)
+      pwm22.duty(700)
+      time.sleep(t_slp)
+      pwm22.duty(500)
+      time.sleep(t_slp)
+      pwm22.duty(200)
+      time.sleep(t_slp)
+      pwm22.duty(100)
+      time.sleep(t_slp)
+      pwm22.duty(50)
+      time.sleep(t_slp)
+      pwm22.duty(10)
+      time.sleep(t_slp)
+      pwm22.duty(5)
       time.sleep(t_slp)
         
 my_timer = Timer(1)
