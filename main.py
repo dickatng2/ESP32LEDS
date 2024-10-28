@@ -38,7 +38,7 @@ def licht02():
 
 
 def licht01():
-  t_slp = 0.1
+  t_slp = 1
   pwm23.duty(1023)
   time.sleep(t_slp)
   pwm23.duty(700)
