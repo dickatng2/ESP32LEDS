@@ -29,7 +29,7 @@ def timer_test(a):
     timer_callback()
 
 def licht01():
-  t_slp = 0.3
+  t_slp = 0.1
   pwm23.duty(1023)
   time.sleep(t_slp)
   pwm23.duty(700)
