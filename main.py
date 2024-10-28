@@ -1,4 +1,4 @@
-# version 20
+# version 21
 import machine, time
 from machine import Pin, PWM, Timer
 from time import sleep
@@ -9,29 +9,21 @@ import os
 import json
 import ntptime
 
-#led = []
-#for i in range (23):
-#    led.append(machine.PWM(Pin(i,Pin.OUT)))
-pwm23 = machine.PWM(Pin(23,Pin.OUT))
-
-
-#from ota import OTAUpdater
+from ota import OTAUpdater
 from wifi_config import SSID, PASSWORD
 firmware_url = "https://github.com/dickatng2/ESP32LEDS/"
 
-#ota_updater = OTAUpdater(SSID, PASSWORD, firmware_url, "main.py")
-
-#led[0].init
-
+ota_updater = OTAUpdater(SSID, PASSWORD, firmware_url, "main.py")
+pwm23 = machine.PWM(Pin(23,Pin.OUT))
 
 def timer_callback():
-#     from ota import OTAUpdater
-#     from WIFI_CONFIG import SSID, PASSWORD
-# 
-#     firmware_url = "https://github.com/dickatng2/ESP32LEDS/"
-#     ota_updater = OTAUpdater(SSID, PASSWORD, firmware_url, "main.py")
+    from ota import OTAUpdater
+    from wifi_config import SSID, PASSWORD
+
+    firmware_url = "https://github.com/dickatng2/ESP32LEDS/"
+    ota_updater = OTAUpdater(SSID, PASSWORD, firmware_url, "main.py")
     print("callback")
-    #ota_updater.download_and_install_update_if_available()
+    ota_updater.download_and_install_update_if_available()
 
 def timer_test(a):
     timer_callback()
@@ -75,4 +67,3 @@ my_timer = Timer(0)
 my_timer.init(mode=Timer.PERIODIC, period=20000, callback=timer_test)
 while True:
     licht01()
-    
