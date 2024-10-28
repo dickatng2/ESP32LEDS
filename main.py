@@ -27,6 +27,15 @@ def timer_callback():
 
 def timer_test(a):
     timer_callback()
+    
+def licht02():
+  t_slp = 0.5
+  pwm23.duty(1023)
+  time.sleep(t_slp)
+  pwm23.duty(0)
+  time.sleep(t_slp)
+    
+
 
 def licht01():
   t_slp = 0.1
@@ -38,6 +47,7 @@ def licht01():
   time.sleep(t_slp)
   pwm23.duty(200)
   time.sleep(t_slp)
+  licht02()
   pwm23.duty(100)
   time.sleep(t_slp)
   pwm23.duty(50)
@@ -46,22 +56,7 @@ def licht01():
   time.sleep(t_slp)
   pwm23.duty(0)
   time.sleep(t_slp)
-#   pwm22.duty(1023)
-#   time.sleep(t_slp)
-#   pwm22.duty(700)
-#   time.sleep(t_slp)
-#   pwm22.duty(500)
-#   time.sleep(t_slp)
-#   pwm22.duty(200)
-#   time.sleep(t_slp)
-#   pwm22.duty(100)
-#   time.sleep(t_slp)
-#   pwm22.duty(50)
-#   time.sleep(t_slp)
-#   pwm22.duty(10)
-#   time.sleep(t_slp)
-#   pwm22.duty(0)
-#   time.sleep(t_slp)
+
         
 my_timer = Timer(0)
 my_timer.init(mode=Timer.PERIODIC, period=20000, callback=timer_test)
