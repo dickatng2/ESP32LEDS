@@ -16,7 +16,7 @@ firmware_url = "https://github.com/dickatng2/ESP32LEDS/"
 ota_updater = OTAUpdater(SSID, PASSWORD, firmware_url, "main.py")
 pwm23 = machine.PWM(Pin(23,Pin.OUT))
 
-led[]
+led= []
 led.append(pwm23)
 
 def timer_callback():
