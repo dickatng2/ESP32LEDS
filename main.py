@@ -18,7 +18,7 @@ pwm23 = machine.PWM(Pin(23,Pin.OUT))
 
 led= []
 led.append(pwm23)
-
+leng = len(led)
 def timer_callback():
     from ota import OTAUpdater
     from wifi_config import SSID, PASSWORD
@@ -40,12 +40,11 @@ def licht02():
   pwm23.duty(0)
   time.sleep(t_slp)
 
-def licht03():
-  t_slp = 0.5
-  pwm23.duty(1023)
-  time.sleep(t_slp)
-  pwm23.duty(0)
-  time.sleep(t_slp)
+def licht03(lengte):
+    for i in range (lengte):
+        led[i].duty(500)
+        time.sleep(1)
+
     
 def licht01():
   t_slp = 1
@@ -71,4 +70,4 @@ def licht01():
 my_timer = Timer(0)
 my_timer.init(mode=Timer.PERIODIC, period=20000, callback=timer_test)
 while True:
-    licht01()
+    licht03(leng)
