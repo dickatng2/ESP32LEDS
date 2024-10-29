@@ -44,7 +44,8 @@ def licht03(lengte):
     for i in range (lengte):
         led[i].duty(500)
         time.sleep(1)
-
+        led[i].duty(0)
+        time.sleep(0.5)
     
 def licht01():
   t_slp = 1
