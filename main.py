@@ -1,4 +1,4 @@
-# version 32
+# version 33
 import machine, time
 from machine import Pin, PWM, Timer
 from time import sleep
@@ -20,7 +20,7 @@ ota_updater = OTAUpdater(SSID, PASSWORD, firmware_url, "main.py")
 
 pwm = [22,23,21,19,27,12,10,26,25,33,32]
 len_pwm = len(pwm)
-duur = 0.5
+duur = 0.2
 per = 60000
 
 pwm[0] = machine.PWM(Pin(26, Pin.OUT)) 
@@ -55,7 +55,6 @@ def licht05(tijd):
         pwm[11-i].duty(0)
         wait(3)
         
-
 def timer_test(a):
     ota_updater.download_and_install_update_if_available()
     print("callback")
@@ -65,11 +64,8 @@ def tijd():
     my_timer.init(mode=Timer.PERIODIC, period=per, callback=timer_test) 
 
 tijd()
-cnt = 0
 while True:    
-     cnt += 1
      licht04(len_pwm, duur)
-     print (cnt)
      sleep(0.01)
      
 
