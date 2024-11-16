@@ -1,4 +1,4 @@
-# version 36
+# version 37
 import machine, time
 from machine import Pin, PWM, Timer
 from time import sleep
@@ -44,7 +44,7 @@ def licht04(num, dt):
         time.sleep(dt)
 
 def licht05(num, dt):                                        
-    for i in range (num, 0, -1):    
+    for i in reversed(range (0, num , 1)):    
         pwm[i].duty(1023)
         pwm[((i-5) % len_pwm)].duty(600)
         pwm[((i-4) % len_pwm)].duty(400)
@@ -63,7 +63,11 @@ def tijd():
 ota_updater = OTAUpdater(SSID, PASSWORD, firmware_url, "main.py")
 tijd()
 while True:    
-     licht04(len_pwm, duur)
+     for i in range (0, 10, 1):
+         licht04(len_pwm, duur)
+     for i in range (0, 10, 1):
+         licht05(len_pwm, duur)
+ 
    
      
 
