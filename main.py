@@ -1,4 +1,4 @@
-# version 35
+# version 36
 import machine, time
 from machine import Pin, PWM, Timer
 from time import sleep
@@ -46,10 +46,10 @@ def licht04(num, dt):
 def licht05(num, dt):                                        
     for i in range (num, 0, -1):    
         pwm[i].duty(1023)
-        pwm[((i+5) % len_pwm)].duty(600)
-        pwm[((i+4) % len_pwm)].duty(400)
-        pwm[((i+3) % len_pwm)].duty(100)
-        pwm[((i+2) % len_pwm)].duty(0)
+        pwm[((i-5) % len_pwm)].duty(600)
+        pwm[((i-4) % len_pwm)].duty(400)
+        pwm[((i-3) % len_pwm)].duty(100)
+        pwm[((i-2) % len_pwm)].duty(0)
         time.sleep(dt) 
             
 def timer_test(a):
