@@ -1,4 +1,4 @@
-# version 31
+# version 32
 import machine, time
 from machine import Pin, PWM, Timer
 from time import sleep
@@ -21,7 +21,7 @@ ota_updater = OTAUpdater(SSID, PASSWORD, firmware_url, "main.py")
 pwm = [22,23,21,19,27,12,10,26,25,33,32]
 len_pwm = len(pwm)
 duur = 0.5
-per = 10000
+per = 60000
 
 pwm[0] = machine.PWM(Pin(26, Pin.OUT)) 
 pwm[1] = machine.PWM(Pin(13, Pin.OUT))
