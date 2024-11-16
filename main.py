@@ -1,4 +1,4 @@
-# version 28
+# version 30
 import machine, time
 from machine import Pin, PWM, Timer
 from time import sleep
@@ -8,13 +8,13 @@ import urequests
 import os
 import json
 
-from us import HCSR04
-sensor = HCSR04(trigger_pin=5, echo_pin=18, echo_timeout_us=30000)
+#from us import HCSR04
+#sensor = HCSR04(trigger_pin=5, echo_pin=18, echo_timeout_us=30000)
 
 from ota import OTAUpdater
 from WIFI_CONFIG import SSID, PASSWORD
 firmware_url = "https://github.com/dickatng2/ESP32LEDS/"
-
+my_timer = Timer(4)
 ota_updater = OTAUpdater(SSID, PASSWORD, firmware_url, "main.py")
 
 pwm = [22,23,21,19,27,12,10,26,25,33,32]
@@ -53,24 +53,22 @@ def licht05(tijd):
         pwm[11-i].duty(0)
         wait(3)
         
-def timer_callback():
-#    firmware_url = "https://github.com/dickatng2/ESP32LEDS/"
-#    ota_updater = OTAUpdater(SSID, PASSWORD, firmware_url, "main.py")
-    print("callback")
+
+def timer_test(a):
     ota_updater.download_and_install_update_if_available()
+    print("callback")
 
-def timer_test():
-    timer_callback()
-
-def tijd():
-    my_timer = Timer(0)
-    my_timer.init(mode=Timer.PERIODIC, period=20000, callback=timer_test) 
+def tijd():    
+    print ("tijd")
+    my_timer.init(mode=Timer.PERIODIC, period=60000, callback=timer_test) 
 
 tijd()
 cnt = 0
 while True:    
      cnt += 1
-     #licht04(len_pwm, duur)
+     licht04(len_pwm, duur)
      print (cnt)
-     sleep(1)
+     sleep(0.1)
+     
+
 
