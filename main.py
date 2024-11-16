@@ -19,8 +19,8 @@ my_timer = Timer(4)
 
 pwm = [26,13,27,14,2,15,23,25,33,12,4]
 len_pwm = len(pwm)
-duur = 0.2
-per = 60000
+duur = 0.1  # 
+per = 60000 # timer voor update via ota in msec
 
 pwm[0] = machine.PWM(Pin(26, Pin.OUT)) 
 pwm[1] = machine.PWM(Pin(13, Pin.OUT))
@@ -34,8 +34,8 @@ pwm[8] = machine.PWM(Pin(33, Pin.OUT))
 pwm[9] = machine.PWM(Pin(12, Pin.OUT))
 pwm[10] = machine.PWM(Pin(04, Pin.OUT))             
  
-def licht04(lengte, dt):                                        
-    for i in range (lengte):    
+def licht04(num, dt):                                        
+    for i in range (num):    
         pwm[i].duty(1023)
         pwm[((i+5) % len_pwm)].duty(600)
         pwm[((i+4) % len_pwm)].duty(400)
