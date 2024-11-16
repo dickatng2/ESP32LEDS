@@ -1,4 +1,4 @@
-# version 34
+# version 35
 import machine, time
 from machine import Pin, PWM, Timer
 from time import sleep
@@ -35,13 +35,22 @@ pwm[9] = machine.PWM(Pin(12, Pin.OUT))
 pwm[10] = machine.PWM(Pin(04, Pin.OUT))             
  
 def licht04(num, dt):                                        
-    for i in range (num):    
+    for i in range (0, num, 1):    
         pwm[i].duty(1023)
         pwm[((i+5) % len_pwm)].duty(600)
         pwm[((i+4) % len_pwm)].duty(400)
         pwm[((i+3) % len_pwm)].duty(100)
         pwm[((i+2) % len_pwm)].duty(0)
         time.sleep(dt)
+
+def licht05(num, dt):                                        
+    for i in range (num, 0, -1):    
+        pwm[i].duty(1023)
+        pwm[((i+5) % len_pwm)].duty(600)
+        pwm[((i+4) % len_pwm)].duty(400)
+        pwm[((i+3) % len_pwm)].duty(100)
+        pwm[((i+2) % len_pwm)].duty(0)
+        time.sleep(dt) 
             
 def timer_test(a):
     ota_updater.download_and_install_update_if_available()
