@@ -1,4 +1,4 @@
-# version 30
+# version 31
 import machine, time
 from machine import Pin, PWM, Timer
 from time import sleep
@@ -13,13 +13,15 @@ import json
 
 from ota import OTAUpdater
 from WIFI_CONFIG import SSID, PASSWORD
+
 firmware_url = "https://github.com/dickatng2/ESP32LEDS/"
 my_timer = Timer(4)
 ota_updater = OTAUpdater(SSID, PASSWORD, firmware_url, "main.py")
 
 pwm = [22,23,21,19,27,12,10,26,25,33,32]
 len_pwm = len(pwm)
-duur = 0.1 
+duur = 0.5
+per = 10000
 
 pwm[0] = machine.PWM(Pin(26, Pin.OUT)) 
 pwm[1] = machine.PWM(Pin(13, Pin.OUT))
@@ -60,7 +62,7 @@ def timer_test(a):
 
 def tijd():    
     print ("tijd")
-    my_timer.init(mode=Timer.PERIODIC, period=60000, callback=timer_test) 
+    my_timer.init(mode=Timer.PERIODIC, period=per, callback=timer_test) 
 
 tijd()
 cnt = 0
@@ -68,7 +70,7 @@ while True:
      cnt += 1
      licht04(len_pwm, duur)
      print (cnt)
-     sleep(0.1)
+     sleep(0.01)
      
 
 
