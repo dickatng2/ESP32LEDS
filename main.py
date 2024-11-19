@@ -19,7 +19,7 @@ my_timer = Timer(4)
 
 pwm = [26,13,27,14,2,15,23,25,33,12,4]
 len_pwm = len(pwm)
-duur = 0.3  # 
+duur = 0.5  # 
 per = 60000 # timer voor update via ota in msec
 
 pwm[0] = machine.PWM(Pin(26, Pin.OUT)) 
@@ -76,7 +76,8 @@ while True:
          licht04(len_pwm, duur)
      for i in range (0, 10, 1):
          licht05(len_pwm, duur)
- 
+     for i in range (0, 10, 1):
+         licht03(len_pwm, duur)
    
      
 
