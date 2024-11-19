@@ -1,4 +1,4 @@
-# version 39
+# version 40
 import machine, time
 from machine import Pin, PWM, Timer
 from time import sleep
@@ -19,7 +19,7 @@ my_timer = Timer(4)
 
 pwm = [26,13,27,14,2,15,23,25,33,12,4]
 len_pwm = len(pwm)
-duur = 0.5  # 
+duur = 0.2  # 
 per = 60000 # timer voor update via ota in msec
 
 pwm[0] = machine.PWM(Pin(26, Pin.OUT)) 
