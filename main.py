@@ -1,4 +1,4 @@
-# version 38
+# version 39
 import machine, time
 from machine import Pin, PWM, Timer
 from time import sleep
@@ -34,6 +34,15 @@ pwm[8] = machine.PWM(Pin(33, Pin.OUT))
 pwm[9] = machine.PWM(Pin(12, Pin.OUT))
 pwm[10] = machine.PWM(Pin(04, Pin.OUT))             
  
+
+def licht03(num, dt):                                        
+    for i in range (0, num, 1):    
+        for j in reversed(range(0, 20, 1)):            
+            pwm[i].duty(j*50)
+            time.sleep(dt/5)
+            print (i,j)
+        time.sleep(0)
+
 def licht04(num, dt):                                        
     for i in range (0, num, 1):    
         pwm[i].duty(1023)
