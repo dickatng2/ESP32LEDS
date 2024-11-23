@@ -1,4 +1,4 @@
-# version 40
+# version 41
 import machine, time
 from machine import Pin, PWM, Timer
 from time import sleep
@@ -28,7 +28,7 @@ pwm[2] = machine.PWM(Pin(27, Pin.OUT))
 pwm[3] = machine.PWM(Pin(14, Pin.OUT))
 pwm[4] = machine.PWM(Pin(2, Pin.OUT))
 pwm[5] = machine.PWM(Pin(15, Pin.OUT))
-pwm[6] = machine.PWM(Pin(23, Pin.OUT))
+pwm[6] = machine.PWM(Pin(19, Pin.OUT))
 pwm[7] = machine.PWM(Pin(25, Pin.OUT))
 pwm[8] = machine.PWM(Pin(33, Pin.OUT))
 pwm[9] = machine.PWM(Pin(12, Pin.OUT))
