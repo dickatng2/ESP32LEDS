@@ -12,7 +12,7 @@ import json
 #sensor = HCSR04(trigger_pin=5, echo_pin=18, echo_timeout_us=30000)
 
 from ota import OTAUpdater
-from WIFI_CONFIG import SSID, PASSWORD
+from wifi_config import SSID, PASSWORD
 
 firmware_url = "https://github.com/dickatng2/ESP32LEDS/"
 my_timer = Timer(4)
