@@ -35,9 +35,9 @@ pwm[9] = machine.PWM(Pin(12, Pin.OUT))
 pwm[10] = machine.PWM(Pin(04, Pin.OUT))             
  
 def test01(num, dt):
- pwm[num].duty(100)
- time.sleep(dt/5)
- 
+    pwm[num].duty(100)
+    time.sleep(dt/5)
+  
 def licht03(num, dt):                                        
     for i in range (0, num, 1):    
         for j in reversed(range(0, 20, 1)):            
