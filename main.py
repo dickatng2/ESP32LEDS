@@ -75,12 +75,12 @@ def tijd():
 ota_updater = OTAUpdater(SSID, PASSWORD, firmware_url, "main.py")
 tijd()
 while True:    
-     for i in range (0, 10, 1):
-         licht04(len_pwm, duur)
-     for i in range (0, 10, 1):
-         licht05(len_pwm, duur)
-     for i in range (0, 10, 1):
-         licht03(len_pwm, duur)
+  #   for i in range (0, 10, 1):
+  #       licht04(len_pwm, duur)
+  #   for i in range (0, 10, 1):
+  #       licht05(len_pwm, duur)
+  #   for i in range (0, 10, 1):
+  #       licht03(len_pwm, duur)
      for i in range(0, 2, 1)
          test01(2, duur)
    
