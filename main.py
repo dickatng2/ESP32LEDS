@@ -1,4 +1,4 @@
-# version 52
+# version 53
 import machine, time
 from machine import Pin, PWM, Timer
 from time import sleep
@@ -82,9 +82,9 @@ while True:
   #   for i in range (0, 10, 1):
   #       licht03(len_pwm, duur)
     pwm[4].duty(100)
-    time.sleep(0.3)
+    time.sleep(0.1)
     pwm[4].duty(0)
-    time.sleep(0.3)
+    time.sleep(0.1)
    
      
 
