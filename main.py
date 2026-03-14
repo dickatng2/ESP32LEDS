@@ -22,7 +22,7 @@ len_pwm = len(pwm)
 duur = 1  # 
 per = 60000 # timer voor update via ota in msec
 
-pwm[0] = machine.PWM(Pin(26, Pin.OUT)) 
+relais = Pin(26, Pin.OUT)
 pwm[1] = machine.PWM(Pin(13, Pin.OUT))
 pwm[2] = machine.PWM(Pin(27, Pin.OUT))
 pwm[3] = machine.PWM(Pin(14, Pin.OUT))
@@ -82,10 +82,10 @@ while True:
   #   for i in range (0, 10, 1):
   #       licht03(len_pwm, duur)
     pwm[4].duty(100)
-    pwm[3].duty(0)
-    time.sleep(1)
-    pwm[4].duty(0)
-    pwm[3].duty(1000)
+    relais.value(1)
+    time.sleep(2)
+    relais.value(0)
+    pwm[4].duty(100)
     time.sleep(2)
    
      
