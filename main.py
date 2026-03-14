@@ -82,10 +82,10 @@ while True:
   #   for i in range (0, 10, 1):
   #       licht03(len_pwm, duur)
     pwm[4].duty(100)
-   # pwm[3]duty(0)
+    pwm[3].duty(0)
     time.sleep(1)
     pwm[4].duty(0)
-   # pwm[3].duty(1000)
+    pwm[3].duty(1000)
     time.sleep(2)
    
      
