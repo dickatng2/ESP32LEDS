@@ -41,10 +41,11 @@ while True:
     minute = a[5]
     hh = a[4]
     if sec % 3 == 0:
-       relais.value(1)
-       pwm[0].duty(0)
-       time.sleep(2)
-       relais.value(0)
-       pwm[0].duty(200)
-       time.sleep(2)
+       print (sec)         
+    relais.value(1)
+    pwm[0].duty(0)
+    time.sleep(2)
+    relais.value(0)
+    pwm[0].duty(200)
+    time.sleep(2)
    
