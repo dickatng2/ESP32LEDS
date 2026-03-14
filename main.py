@@ -1,4 +1,4 @@
-# version 60
+# version 72
 import machine, time
 from machine import Pin, PWM, Timer
 from time import sleep
@@ -16,12 +16,7 @@ from wifi_config import SSID, PASSWORD
 firmware_url = "https://github.com/dickatng2/ESP32LEDS/"
 my_timer = Timer(4)
 
-pwm = [2]
-len_pwm = len(pwm)
-duur = 1  # 
-per = 60000 # timer voor update via ota in msec
-
-relais = Pin(26, Pin.OUT)
+relais_1 = Pin(26, Pin.OUT)
 pwm[0] = machine.PWM(Pin(2, Pin.OUT))
             
 def timer_test(a):
@@ -30,22 +25,22 @@ def timer_test(a):
 
 def tijd():    
     print ("tijd")
-    my_timer.init(mode=Timer.PERIODIC, period=per, callback=timer_test) 
+    my_timer.init(mode=Timer.PERIODIC, period=6000, callback=timer_test) 
 
 ota_updater = OTAUpdater(SSID, PASSWORD, firmware_url, "main.py")
 tijd()
 
 while True:    
     a = rtc.datetime()
-    sec = a[6]
-    minute = a[5]
-    hh = a[4]
-    if sec % 3 == 0:
-       print (sec)         
-    relais.value(1)
-    pwm[0].duty(0)
-    time.sleep(2)
-    relais.value(0)
-    pwm[0].duty(200)
-    time.sleep(2)
+    if a[6] % 3 == 0: 
+        start_1 = True
+            while start_1:
+                relais_1.value(1)                
+        pwm[0].duty(0)
+        time.sleep(2)
+        start_1 = False        
+        
+        relais_1.value(0)
+        pwm[0].duty(100)
+        time.sleep(2)
    
