@@ -22,7 +22,7 @@ duur = 1  #
 per = 60000 # timer voor update via ota in msec
 
 relais = Pin(26, Pin.OUT)
-pwm[4] = machine.PWM(Pin(2, Pin.OUT))
+pwm[0] = machine.PWM(Pin(2, Pin.OUT))
             
 def timer_test(a):
     ota_updater.download_and_install_update_if_available()
