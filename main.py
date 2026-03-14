@@ -34,13 +34,13 @@ while True:
     a = rtc.datetime()
     if a[6] % 3 == 0: 
         start_1 = True
-            while start_1:
-                relais_1.value(1)                
+    while start_1:
+        relais_1.value(1)                
         pwm[0].duty(0)
         time.sleep(2)
         start_1 = False        
         
-        relais_1.value(0)
-        pwm[0].duty(100)
-        time.sleep(2)
+    relais_1.value(0)
+    pwm[0].duty(100)
+    time.sleep(2)
    
