@@ -1,4 +1,4 @@
-# version 72
+# version 73
 import machine, time
 from machine import Pin, PWM, Timer
 from time import sleep
@@ -28,7 +28,7 @@ def timer_test(a):
 
 def tijd():    
     print ("tijd")
-    my_timer.init(mode=Timer.PERIODIC, period=6000, callback=timer_test) 
+    my_timer.init(mode=Timer.PERIODIC, period=60000, callback=timer_test) 
 
 def uit(start,relais_num):    
     if start == True:    
