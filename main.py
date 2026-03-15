@@ -17,7 +17,10 @@ firmware_url = "https://github.com/dickatng2/ESP32LEDS/"
 my_timer = Timer(4)
 
 relais_1 = Pin(26, Pin.OUT)
-pwm[0] = machine.PWM(Pin(2, Pin.OUT))
+relais_2 = Pin(33, Pin.OUT)
+relais = tuple([relais_1,relais_2])
+start_1 = False
+start_2 = False
             
 def timer_test(a):
     ota_updater.download_and_install_update_if_available()
@@ -27,20 +30,29 @@ def tijd():
     print ("tijd")
     my_timer.init(mode=Timer.PERIODIC, period=6000, callback=timer_test) 
 
+def uit(start,relais_num):    
+    if start == True:    
+        relais[relais_num].value(1)          
+    else:                             
+        relais[relais_num].value(0)
+        
 ota_updater = OTAUpdater(SSID, PASSWORD, firmware_url, "main.py")
 tijd()
 
-while True:    
-    a = rtc.datetime()
-    if a[6] % 3 == 0: 
+while True:
+    ymdhms = rtc.datetime()
+    if ymdhms[6] % 10 == 0: 
         start_1 = True
-    while start_1:
-        relais_1.value(1)                
-        pwm[0].duty(0)
-        time.sleep(2)
-        start_1 = False        
-        
-    relais_1.value(0)
-    pwm[0].duty(100)
-    time.sleep(2)
-   
+    if ymdhms[6] % 3 == 0:
+        start_1 = False    
+    if ymdhms[6] % 3 == 0: 
+        start_2 = True
+    if ymdhms[6] % 5 == 0:
+        start_2 = False     
+    
+    uit(start_1,0)
+    uit(start_2,1)
+
+
+    
+    
