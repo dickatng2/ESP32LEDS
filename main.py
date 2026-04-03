@@ -23,7 +23,7 @@ rel_1 = Pin(26, Pin.OUT)
 rel_2 = Pin(33, Pin.OUT)
 
 rel_1_sec_on = [1,5], [14, 27] # [on/off][h/m/s] alarm setpoints rel
-rel_1_sec_off = [0, 5], 17, 30] # setpoints rel 1 uit
+rel_1_sec_off = [0, 5], [17, 30] # setpoints rel 1 uit
 rel_2_sec_on = [1,5], [17, 33] # setpoints rel 2 aan
 rel_2_sec_off = [0, 5], [20, 36] # setpoints rel 2 uit
 
