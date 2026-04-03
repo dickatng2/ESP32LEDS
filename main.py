@@ -1,4 +1,4 @@
-# version 100
+# version 101
 import machine, time
 from machine import Pin, PWM, Timer
 from time import sleep
@@ -48,8 +48,6 @@ rel_1_data = [rel_1, 0, rel_1_hh, rel_1_min, rel_1_sec]
 rel_2_data = [rel_2, 0, rel_2_hh, rel_2_min, rel_2_sec]
 
 rel = [rel_1_data, rel_2_data]
-
-
 
 # def tijd_sync():
 #     try: 
