@@ -1,4 +1,4 @@
-# version 101
+# version 103
 import machine, time
 from machine import Pin, PWM, Timer
 from time import sleep
@@ -24,15 +24,15 @@ rel_2 = Pin(33, Pin.OUT)
 
 # [on/off][h/m/s] alarm setpoints rel
 # 1 is on; 5 is sec, 4, min 3 hours
-rel_1_sec_on = [1,5], [14, 27] 
-rel_1_sec_off = [0, 5], [17, 30]  
-rel_2_sec_on = [1,5], [17, 33] 
-rel_2_sec_off = [0, 5], [20, 36] 
+rel_1_sec_on = [1,5], [14, 27,40] 
+rel_1_sec_off = [0, 5], [17, 30, 43]  
+rel_2_sec_on = [1,5], [17, 33, 41] 
+rel_2_sec_off = [0, 5], [20, 36,45] 
 
 rel_1_min_on = [1, 4], [15, 29, 31] 
-rel_1_min_off = [0, 4], [30, 45] 
-rel_2_min_on = [1, 4],[ 15, 29] 
-rel_2_min_off = [0, 4],[30, 45] 
+rel_1_min_off = [0, 4], [30, 45, 35] 
+rel_2_min_on = [1, 4],[ 15, 29, 46] 
+rel_2_min_off = [0, 4],[30, 45, 50] 
 
 rel_1_hh_on = [1,3],[ 1, 2] 
 rel_1_hh_off = [0, 3], [2, 3] 
