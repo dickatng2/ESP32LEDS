@@ -1,4 +1,4 @@
-# version 103
+# version 104
 import machine, time
 from machine import Pin, PWM, Timer
 from time import sleep
@@ -82,7 +82,7 @@ def check_alarm_time():
                     #print (j[0][0], j[0][1])
                     for o in j[1]:
                         #print (i[1],j[0][0],j[0][1],o)
-                        if t[5] == o:
+                        if t[4] == o:
                             if i[1] != j[0][0]:
                                 print ('toggle hit', t[5], i[0], i[1], j[0][0])
                                 i[1] = j[0][0]
