@@ -22,20 +22,22 @@ my_timer = Timer(4)
 rel_1 = Pin(26, Pin.OUT) 
 rel_2 = Pin(33, Pin.OUT)
 
-rel_1_sec_on = [1,5], [14, 27] # [on/off][h/m/s] alarm setpoints rel
-rel_1_sec_off = [0, 5], [17, 30] # setpoints rel 1 uit
-rel_2_sec_on = [1,5], [17, 33] # setpoints rel 2 aan
-rel_2_sec_off = [0, 5], [20, 36] # setpoints rel 2 uit
+# [on/off][h/m/s] alarm setpoints rel
+# 1 is on; 5 is sec, 4, min 3 hours
+rel_1_sec_on = [1,5], [14, 27] 
+rel_1_sec_off = [0, 5], [17, 30]  
+rel_2_sec_on = [1,5], [17, 33] 
+rel_2_sec_off = [0, 5], [20, 36] 
 
-rel_1_min_on = [1, 4], [15, 29, 31] # setpoints rel 1 aan
-rel_1_min_off = [0, 4], [30, 45] # setpoints rel 1 uit
-rel_2_min_on = [1, 4],[ 15, 29] # setpoints rel 2 aan
-rel_2_min_off = [0, 4],[30, 45] # setpoints rel 2 uit
+rel_1_min_on = [1, 4], [15, 29, 31] 
+rel_1_min_off = [0, 4], [30, 45] 
+rel_2_min_on = [1, 4],[ 15, 29] 
+rel_2_min_off = [0, 4],[30, 45] 
 
-rel_1_hh_on = [1,3],[ 1, 2] # setpoints rel 1 aan
-rel_1_hh_off = [0, 3], [2, 3] # setpoints rel 1 uit
-rel_2_hh_on = [1, 3],[ 3, 4] # setpoints rel 2 aan
-rel_2_hh_off = [0,3],[ 5, 6] # setpoints rel 2 uit
+rel_1_hh_on = [1,3],[ 1, 2] 
+rel_1_hh_off = [0, 3], [2, 3] 
+rel_2_hh_on = [1, 3],[ 3, 4] 
+rel_2_hh_off = [0,3],[ 5, 6] 
 
 rel_1_sec = [rel_1_sec_on, rel_1_sec_off]
 rel_1_min = [rel_1_min_on, rel_1_min_off]
@@ -70,12 +72,12 @@ def rel_startstop():
         i[0].value(i[1])
 
 def check_alarm_time():
-    t = time.localtime()
-    for i in rel:
+    t = time.localtime() # actuele tijd
+    for i in rel: # voor iedere rel (= relais of pin uitgang)
         #print (i)
-        for m in range(2,5):
+        for m in range(2,5): # 
             #print(i(m))
-            for j in i[m]:
+            for j in i[m]: #loop over rel data hh , min sec
                 for n in range(0,2):
                     #print (j[0][0], j[0][1])
                     for o in j[1]:
