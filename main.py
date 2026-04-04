@@ -1,4 +1,4 @@
-# version 104
+# version 105
 import machine, time
 from machine import Pin, PWM, Timer
 from time import sleep
@@ -84,7 +84,7 @@ def check_alarm_time():
                         #print (i[1],j[0][0],j[0][1],o)
                         if t[4] == o:
                             if i[1] != j[0][0]:
-                                print ('toggle hit', t[5], i[0], i[1], j[0][0])
+                                print ('toggle hit','tijd: ', t[3],':',t[4],':',t[5], 'output', i[0], 'van:',i[1],'naar:', j[0][0], end='   \r          ')
                                 i[1] = j[0][0]
 
 ota_updater = OTAUpdater(SSID, PASSWORD, firmware_url, "main.py")
