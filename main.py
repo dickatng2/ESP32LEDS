@@ -1,4 +1,4 @@
-# version 108
+# version 109
 import machine, time
 from machine import Pin, PWM, Timer
 from time import sleep
@@ -29,8 +29,8 @@ rel_1_sec_off = [1, 5], [15,45,0]
 rel_2_sec_on = [1,5], [1,29] 
 rel_2_sec_off = [0, 5], [15,45] 
 
-rel_1_min_on  = [1, 4], [1, 16, 31, 46] 
-rel_1_min_off = [0, 4], [6, 21, 36, 51] 
+rel_1_min_on  = [1, 4], [1, 30] 
+rel_1_min_off = [0, 4], [15,45] 
 rel_2_min_on  = [1, 4], [2, 32] 
 rel_2_min_off = [0, 4], [17, 47] 
 
