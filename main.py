@@ -24,10 +24,10 @@ rel_2 = Pin(33, Pin.OUT)
 
 # [on/off][h/m/s] alarm setpoints rel
 # 1 is on; 5 is sec, 4, min 3 hours
-rel_1_sec_on = [1,5], [1, 16, 31, 46] 
-rel_1_sec_off = [1, 5], [6, 21, 36, 51]  
-rel_2_sec_on = [1,5], [2, 17, 32, 47] 
-rel_2_sec_off = [0, 5], [7, 22, 33, 48] 
+rel_1_sec_on = [1,5], [1, 30, 55] 
+rel_1_sec_off = [1, 5], [15,45,0]  
+rel_2_sec_on = [1,5], [1,29] 
+rel_2_sec_off = [0, 5], [15,45] 
 
 rel_1_min_on  = [1, 4], [1, 16, 31, 46] 
 rel_1_min_off = [0, 4], [6, 21, 36, 51] 
